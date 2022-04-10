@@ -1,5 +1,5 @@
 [package]
-name = "cw-basic-template"
+name = "cw-satoshi-test"
 version = "0.1.0"
 authors = ["Giancarlos Salas <giansalex@gmail.com>"]
 edition = "2018"
@@ -29,6 +29,7 @@ overflow-checks = true
 [features]
 # for more explicit tests, cargo test --features=backtraces
 backtraces = ["cosmwasm-std/backtraces"]
+cranelift = ["cosmwasm-vm/cranelift"]
 # use library feature to disable all instantiate/execute/query exports
 library = []
 
@@ -42,6 +43,7 @@ optimize = """docker run --rm -v "$(pwd)":/code \
 [dependencies]
 cosmwasm-std = { version = "1.0.0-beta5", features = ["stargate"] }
 cosmwasm-storage = { version = "1.0.0-beta5" }
+cosmwasm-vm = { version = "1.0.0-beta5", features = ["stargate"] }
 cw-storage-plus = "0.12.1"
 cw2 = "0.12.1"
 schemars = "0.8"
