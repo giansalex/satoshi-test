@@ -1,3 +1,4 @@
 # Satoshi test
 
-Get ABCI query calls
+Simulate Juno halt
+

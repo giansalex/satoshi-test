@@ -5,6 +5,8 @@ use cosmwasm_vm::internals::check_wasm;
 use cosmwasm_vm::testing::{MockApi, MockInstanceOptions, MockStorage, MOCK_CONTRACT_ADDR};
 use cosmwasm_vm::{Backend, BackendResult, GasInfo, Instance, InstanceOptions, Querier};
 
+const DEFAULT_GAS_LIMIT: u64 = 4_000_000_000_000;
+
 pub fn mock_instance(
     wasm: &[u8],
     contract_balance: &[Coin],
@@ -13,6 +15,7 @@ pub fn mock_instance(
         wasm,
         MockInstanceOptions {
             contract_balance: Some(contract_balance),
+            gas_limit: DEFAULT_GAS_LIMIT,
             ..Default::default()
         },
     )
